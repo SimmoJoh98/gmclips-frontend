@@ -17,6 +17,7 @@ function Login(){
             res => {
                 setUsr(res.data[0].username)
                 localStorage.setItem("user", res.data[0].username)
+                localStorage.setItem("userID", res.data[0].user_id)
                 navigate("/userfeed")
             }
         )

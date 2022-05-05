@@ -13,14 +13,11 @@ const SQL = new Sequelize(LDEV, {
 })
 
 module.exports = {
-    createPost: async (req,res) => {
-
-    },
     deletePost: async (req,res) => {
 
     },
     likePost: async(req,res) => {
-
+        //backend logic
     },
     commentOnPost: async (req,res) => {
 

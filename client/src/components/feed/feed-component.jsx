@@ -8,17 +8,17 @@ function Feed(){
     const {usr, setUsr} = useContext(UserContext)
 
     let tmpUsr = localStorage.getItem('user')
+    let userID = localStorage.getItem('userID')
     let [posts, setPosts] = useState([])
     let [images, setImages] = useState([])
 
     const getFeed = async () => {
         let tmpPost
 
-        const res = await axios.get(`http://localhost:3012/srvc/usrposts?user=${tmpUsr}`)
+        const res = await axios.get(`http://localhost:3012/srvc/usrposts?userID=${userID}`)
         tmpPost = res.data
         tmpPost.reverse()
         setPosts(tmpPost)
-        // console.log(tmpPost)
 
         // chain requests media based off of post id's
         let imgs = await getMedia(tmpPost)

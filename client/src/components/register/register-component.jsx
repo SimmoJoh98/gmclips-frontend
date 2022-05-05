@@ -10,7 +10,7 @@ function Registration(){
         let user = e.target.username.value
         let pass = e.target.password.value
 
-        axios.post('http://localhost:3005/api/register', {username: user, password: pass})
+        await axios.post('http://localhost:3005/api/register', {username: user, password: pass})
         e.target.reset()
         navigate("/")
     }
@@ -19,8 +19,8 @@ function Registration(){
         <div className='container'>  
             <h1 className='signup-header'>Sign Up!</h1>
             <form onSubmit={handleSubmit} className="registration" action="submit">
-                <input type="text" placeholder="username" className='text-field'/>
-                <input type="password" placeholder="password" className='text-field'/>
+                <input type="text" placeholder="username" className='text-field' id="username"/>
+                <input type="password" placeholder="password" className='text-field' id="password"/>
                 <button className="register-btn">Sign Up!</button>
             </form>
             <div>

@@ -11,15 +11,17 @@ function CreatePost(e){
         e.preventDefault()
         let formData = new FormData()
         let date = new Date()
+        let userID = localStorage.getItem('userID')
         date.toISOString()
 
         formData.append("postDesc", e.target.postText.value)
         formData.append("user", usr)
         formData.append("date", date)
         formData.append("media_payload", e.target.fileForm.files[0])
+        formData.append("userID", userID)
 
         await axios.post(`http://localhost:3012/srvc/post`, formData).then(
-            res => console.log(res.data)
+            res => console.log(`Post created!`)
         ).catch(err => console.log(err))
 
         e.target.reset()
